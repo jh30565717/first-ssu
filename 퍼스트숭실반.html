@@ -392,13 +392,14 @@ document.getElementById('cfgPreview').textContent = JSON.stringify({
   storageBucket:"your-project.appspot.com", messagingSenderId:"1234567890", appId:"1:1234567890:web:abcdef"
 }, null, 2);
 
+let db, unsubs=[];
+
 if(firebaseConfig.apiKey === "REPLACE_ME"){
   document.getElementById('setupScreen').hidden = false;
 }else{
   boot();
 }
 
-let db, unsubs=[];
 function boot(){
   firebase.initializeApp(firebaseConfig);
   db = firebase.firestore();
